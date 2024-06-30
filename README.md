@@ -6,3 +6,6 @@ a diary application for mac i wrote a while ago that tracks the weather, locatio
 this was super fun to write and i enjoyed learning SQL.
 
 code is super messy currently but i might fix it
+
+
+some sql scripts taken from https://felixkohlhas.com/projects/screentime/, thank you to this person!!
