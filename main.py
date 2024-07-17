@@ -95,18 +95,6 @@ class Entry:
                     self.day_other += i[1]
 
 
-conn = sqlite3.connect("diary.db")
-cursor = conn.cursor()
-cursor.execute('''
-    CREATE TABLE if NOT EXISTS entries
-    (message TEXT, feeling TEXT, rating INTEGER, location TEXT, date TEXT, time TEXT, day_screentime INTEGER,
-    day_communication INTEGER, day_audio INTEGER, day_productive INTEGER, day_other INTEGER, 
-    temp INTEGER, cloud_cover INTEGER, location_name TEXT)
-''')
-conn.commit()
-conn.close()
-
-
 def add_entry(content, feeling, rating,):
     print("Writing entry to database.")
     conn4 = sqlite3.connect("diary.db")
@@ -168,6 +156,17 @@ def get_sec(time_str):
 
 
 def main():
+    conn = sqlite3.connect("diary.db")
+    cursor = conn.cursor()
+    cursor.execute('''
+    CREATE TABLE if NOT EXISTS entries
+    (message TEXT, feeling TEXT, rating INTEGER, location TEXT, date TEXT, time TEXT, day_screentime INTEGER,
+    day_communication INTEGER, day_audio INTEGER, day_productive INTEGER, day_other INTEGER, 
+    temp INTEGER, cloud_cover INTEGER, location_name TEXT)
+    ''')
+    conn.commit()
+    conn.close()
+    
     while True:
         print("1. Write")
         print("2. Read")
